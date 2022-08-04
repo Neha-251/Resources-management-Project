@@ -1,0 +1,32 @@
+
+.pagination_container{
+    text-align:right;
+    display: flex;
+    justify-content: right;
+    padding: 0 80px;
+}
+.pagination{
+    display: flex;
+    width: 200px;
+}
+
+.page_item{
+    list-style: none;
+    border: 1px solid silver;
+    padding: 3px 10px;
+    cursor: pointer;
+
+}
+
+.page_item:hover{
+    background-color: rgb(3, 89, 227);
+    color: white;
+}
+
+
+.currPage_item{
+    list-style: none;
+    background-color: rgb(3, 55, 139);;
+    padding: 3px 10px;
+    color: white;
+}

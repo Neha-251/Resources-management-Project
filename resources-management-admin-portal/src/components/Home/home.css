@@ -19,6 +19,10 @@
     margin: 0;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
 .clicked_btn{
     background-color: rgb(3, 55, 139);
     color: white;
@@ -36,6 +40,7 @@
 
 .search_container{
     width: 45%;
+
     height: 25px;
     display: flex;
 
@@ -61,11 +66,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
-    margin: 50px auto;
+    width:100%;
+    margin: 50px 0;
 }
 
 .card{
-    margin: 0px auto;
+    margin: 0px;
     border: 1px solid silver;
     padding: 20px;
     width: 80%;
@@ -81,6 +87,7 @@
     height: 60px;
     width: 60px;
     border-radius: 50%;
+    border: 2px solid silver;
 }
 
 .card_upper2 p{
@@ -96,3 +103,5 @@
 .card_lower > p:nth-child(1){
     color: blue;
 }
+
+

@@ -1,0 +1,40 @@
+
+
+.homeLink_con{
+    display: flex;
+    margin: 20px 0;
+}
+
+.homeLink_con p{
+    margin: 0;
+}
+
+.arrowIcon{
+    margin-top: 5px;
+    color: black;
+}
+
+.cardDetails_con{
+    border: 1px solid silver;
+    padding: 10px;
+}
+
+.cardDetails_upper{
+    display: flex;
+    gap: 20px;
+}
+
+.cardDetails_upper2:nth-child(1){
+    font-size: 20px;
+    color: black;
+    margin: 0;
+}
+.cardDetails_upper2:nth-child(2){
+    font-size: 15px;
+    margin: 0;
+}
+.cardDetails_upper2:nth-child(3){
+    font-size: 15px;
+    color: rgb(23, 91, 218) 91, 218);
+    margin: 0;
+}

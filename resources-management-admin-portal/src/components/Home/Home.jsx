@@ -8,10 +8,12 @@ import { getProducts } from "../../redux/actions/product";
 export const Home = () => {
 
     const [showContainer, setShowContainer] = useState('resources');
+    console.log('showContainer', showContainer)
 
     const dispatch = useDispatch();
     const data = useSelector((state) => state.products.products);
     const [prodData, setProdData] = useState(data);
+    console.log('prodData', prodData)
     const [filteredData, setFilteredData] = useState([]);
 
 
