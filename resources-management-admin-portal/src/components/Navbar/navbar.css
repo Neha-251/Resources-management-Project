@@ -1,0 +1,18 @@
+
+
+nav{
+    border-bottom: 1px solid silver;
+    padding: 0px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav > img{
+    height: 70px;
+    
+}
+
+.userIcon{
+    font-size: 30px;
+    margin-top: 15px;
+}
