@@ -13,7 +13,6 @@ export const Home = () => {
     const dispatch = useDispatch();
     const data = useSelector((state) => state.products.products);
     const [prodData, setProdData] = useState(data);
-    console.log('prodData', prodData)
     const [filteredData, setFilteredData] = useState([]);
 
 

@@ -15,8 +15,9 @@
 }
 
 .cardDetails_con{
-    border: 1px solid silver;
+    /* border: 1px solid silver; */
     padding: 10px;
+    margin-bottom : 10px;
 }
 
 .cardDetails_upper{
@@ -24,17 +25,72 @@
     gap: 20px;
 }
 
-.cardDetails_upper2:nth-child(1){
+.cardDetails_upper2 > p:nth-child(1){
     font-size: 20px;
     color: black;
     margin: 0;
 }
-.cardDetails_upper2:nth-child(2){
+.cardDetails_upper2 > p:nth-child(2){
     font-size: 15px;
-    margin: 0;
+    margin: 5px 0;
 }
-.cardDetails_upper2:nth-child(3){
+.cardDetails_upper2 > p:nth-child(3){
     font-size: 15px;
-    color: rgb(23, 91, 218) 91, 218);
-    margin: 0;
+    color: rgb(23, 91, 218);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+.searchMain_con{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.searchMain_con p{
+    margin:0;
+}
+
+table{
+    margin: 30px auto;
+    /* border: 1px solid silver; */
+    border-collapse: collapse;
+}
+
+
+tr, td, th{
+    padding: 8px;
+}
+
+
+thead > tr{
+    border: 1px solid silver;
+}
+
+tbody > tr{
+    border-bottom: 1px solid silver;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+}
+
+tr, td{
+    height: 40px;
+}
+
+.checkBox{
+    border: 1px solid silver;
+    width: 10px;
+    height: 10px;
+}
+
+
+.td_link{
+    color: rgb(56, 56, 208);
+}
+
+.pagination_con{
+    display: flex;
+    justify-content: space-between;
 }

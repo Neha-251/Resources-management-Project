@@ -5,17 +5,24 @@ body{
 }
 
 .normal_btn{
-  background-color: rgb(3, 89, 227);
   color: white;
   border-radius: 5px;
-  padding: 8px 12px;
+  padding: 12px 15px;
+  border: none;
+  margin: 10px 5px;
+}
+
+.green{
+  background-color: seagreen;
   cursor: pointer;
 }
 
-.disabled_btn{
+.blue{
+  background-color: rgb(3, 89, 227);
+  cursor: pointer;
+}
+
+.silver{
   background-color: silver;
-  cursor:not-allowed;
-  color: white;
-  border-radius: 5px;
-  padding: 8px 12px;
+  cursor: not-allowed;
 }

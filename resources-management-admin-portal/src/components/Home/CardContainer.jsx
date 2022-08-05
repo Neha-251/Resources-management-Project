@@ -14,6 +14,8 @@ export const CardContainer = ({ data }) => {
     }, [data])
 
     const handleInp = (e) => {
+
+        // notes={notes.filter((el)=>el.text.toLowerCase().includes(search))} 
         if (e.key === 'Enter' && e.target.value !== '') {
             let newData = [];
 
@@ -106,7 +108,6 @@ export const CardContainer = ({ data }) => {
             </div>
 
             <Pagination
-                itemPerPage={itemPerPage}
                 totalPage={totalPage}
                 paginate={paginate}
                 paginateNext={paginateNext}

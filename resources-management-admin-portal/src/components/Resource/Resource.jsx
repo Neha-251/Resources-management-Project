@@ -4,26 +4,34 @@ import { RiArrowLeftSLine } from 'react-icons/ri';
 import { AiOutlineSearch } from 'react-icons/ai';
 import axios from "axios";
 import './resource.css'
+import { useSelector, useDispatch } from "react-redux/es/exports";
 import { Link } from 'react-router-dom';
 import { CardDetails } from "./CardDetails";
+import { getSingleProduct, setResources } from "../../redux/actions/product";
+import { ResourcesMap } from "./ResourcesMap";
+import { Pagination } from "../Pagination/Pagination";
 
 export const Resource = () => {
 
     const { id } = useParams();
-    const [data, setData] = useState({})
-    const [resources, setResources] = useState([])
-    console.log('resources', resources)
+
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.products.product);
+    const resources = useSelector((state) => state.products.resources);
+
+    const prodLoading = useSelector((state) => state.products.loading);
+
 
     useEffect(() => {
-        axios.get(`https://media-content.ccbp.in/website/react-assignment/resource/${id}.json`)
-            .then(res => { setData(res.data); setResources(res.data.resource_items) }).catch(err => console.log(err))
+        dispatch(getSingleProduct(id))
     }, [id])
+
 
     const handleInp = (e) => {
         if (e.key === 'Enter' && e.target.value !== '') {
             let newData = [];
 
-            data.forEach((el) => {
+            resources.forEach((el) => {
                 let { title } = el;
 
                 for (let i = 0; i < title.length; i++) {
@@ -36,51 +44,44 @@ export const Resource = () => {
                     }
                 }
             })
-            setData(newData);
+            dispatch(setResources(newData))
         }
 
     }
 
-    console.log(data)
+  
+
 
     return (
         <>
-            <div className='home_main_container'>
-                <Link to='/'>
-                    <div className="homeLink_con">
-                        <RiArrowLeftSLine className="arrowIcon" />
-                        <p>Resources</p>
+            {!prodLoading ?
+                <div className='home_main_container'>
+                    <Link to='/'>
+                        <div className="homeLink_con">
+                            <RiArrowLeftSLine className="arrowIcon" />
+                            <p>Resources</p>
+                        </div>
+                    </Link>
+
+                    <CardDetails data={data} />
+
+                    <div>
+                        <button className='normal_btn blue'>UPDATE</button>
                     </div>
-                </Link>
 
-               <CardDetails data={data} />
-
-                <div>
-                    <button>UPDATE</button>
-                </div>
-
-                <div>
-                    <p>Items</p>
-                    <div className="search_container">
-                        <span><AiOutlineSearch className='searchIcon' /></span>
-                        <input type="text" placeholder="Search" className="search_inp" onKeyUp={handleInp} />
+                    <div className='searchMain_con'>
+                        <p>Items</p>
+                        <div className="search_container">
+                            <span><AiOutlineSearch className='searchIcon' /></span>
+                            <input type="text" placeholder="Search" className="search_inp" onKeyUp={handleInp} />
+                        </div>
                     </div>
-                </div>
 
-                <div>
                     {/* ITEMS MAP */}
-                </div>
+                    <ResourcesMap data={resources} loading={prodLoading} />
 
-                <div>
-                    <div>
-                        <button>ADD ITEM</button>
-                        <button>DELETE</button>
-                    </div>
-                    <div>
-                        {/* PAGINATION */}
-                    </div>
-                </div>
-            </div>
+                   
+                </div> : <div>Loading</div>}
         </>
     )
 }
