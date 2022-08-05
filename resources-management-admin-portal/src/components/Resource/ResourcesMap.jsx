@@ -1,26 +1,23 @@
 import { useEffect, useState } from "react";
 import { Pagination } from "../Pagination/Pagination";
-
+import { DeleteResource } from "./DeleteResource";
+import {Link } from 'react-router-dom';
 
 
 
 export const ResourcesMap = ({ data, loading }) => {
-    console.log('data', data)
 
     //Pagination
 
     const [currPage, setCurrPage] = useState(1);
     const [itemPerPage, setItemPerPage] = useState(6);
     const [currItems, setCurrItems] = useState([])
-    console.log('currItems', currItems)
     const [totalPage, setTotalPage] = useState(0)
 
     useEffect(() => {
         setTotalPage(Math.ceil(data.length / itemPerPage))
         const indLastItem = currPage * itemPerPage;
-        console.log('indLastItem', indLastItem)
         const indFirstItem = indLastItem - itemPerPage
-        console.log('indFirstItem', indFirstItem)
         setCurrItems(data.slice(indFirstItem, indLastItem))
     }, [data, currPage])
 
@@ -36,17 +33,42 @@ export const ResourcesMap = ({ data, loading }) => {
 
     //pagination
 
+
     const [chosenItem, setChosenItem] = useState([]);
     console.log('chosenItem', chosenItem)
+    const [isDelete, setIsDelete] = useState(false);
 
-    const chooseItem = (i)=> {
-        setChosenItem([...chosenItem, i]);
+    const chooseItem = (title) => {
+
+        if (chosenItem.length === 0) {
+            setChosenItem([...chosenItem, title])
+        } else {
+
+            let item = currItems.filter((el)=> el.title===title)
+
+            if(item[0]){
+                let arr = [];
+                chosenItem.forEach((el) => {
+                    if (title !== el.title) {
+                        arr.push(el)
+                    }
+                })
+                setChosenItem(arr)
+            } else {
+                setChosenItem([...chosenItem, title])
+  
+            }
+            
+        }
     }
 
-    const handleDelete = (i)=> {
+    const handleDelete = (i) => {
         data.splice(i, 1)
     }
 
+    const handleLink = (link) => {
+        window.open(`${link}`, `_blank`)
+    }
 
 
     return (
@@ -57,7 +79,7 @@ export const ResourcesMap = ({ data, loading }) => {
                     <table>
                         <thead>
                             <tr>
-                                <th><div className='checkBox'></div></th>
+                                <th></th>
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Link</th>
@@ -69,12 +91,12 @@ export const ResourcesMap = ({ data, loading }) => {
                                     return (
                                         <tr key={el.id}>
                                             <td>
-                                                {/* <div onClick={(i)=>chooseItem(i)} className='checkBox'></div> */}
-                                                <input type="checkbox" />
+                                                <input id='checkBox' onClick={() => chooseItem(el.title)} type="checkbox" />
+
                                             </td>
                                             <td>{el.title}</td>
                                             <td>{el.description}</td>
-                                            <td className="td_link">{el.link}</td>
+                                            <td onClick={()=> handleLink(el.link)} className="td_link">{el.link}</td>
                                         </tr>
                                     )
                                 })
@@ -86,8 +108,8 @@ export const ResourcesMap = ({ data, loading }) => {
 
             <div className="pagination_con">
                 <div>
-                    <button className='normal_btn green'>ADD ITEM</button>
-                    <button className='normal_btn silver'>DELETE</button>
+                    <Link to='/additem'><button className='normal_btn green'>ADD ITEM</button></Link>
+                    <button className={isDelete ? 'normal_btn red' : 'normal_btn silver'}>DELETE</button>
                 </div>
                 <div>
                     <Pagination

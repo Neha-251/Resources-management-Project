@@ -28,29 +28,33 @@ export const Resource = () => {
 
 
     const handleInp = (e) => {
-        if (e.key === 'Enter' && e.target.value !== '') {
+
+        let search = e.target.value
+        if (e.key === 'Enter' && search !== '') {
             let newData = [];
-
-            resources.forEach((el) => {
-                let { title } = el;
-
-                for (let i = 0; i < title.length; i++) {
-                    let str = '';
-                    for (let j = i; j < title.length; j++) {
-                        str += title[j]
-                        if (e.target.value === str) {
-                            newData.push(el);
-                        }
-                    }
-                }
-            })
-            dispatch(setResources(newData))
+            newData = resources.filter(el => el.title.toLowerCase().includes(search))
+            dispatch(setResources(newData));
         }
 
     }
 
-  
+    //Sorting
 
+    const [sortValue, setSortValue] = useState('');
+    const [sortedData, setSortedData] = useState([]);
+    
+
+    useEffect(()=> {
+        let arr = [...resources];
+        if(sortValue === 'recent') {
+            arr.sort((a, b) => {return b.id-a.id})
+        } else if(sortValue === 'ascend'){
+            arr.sort((a, b) => {return a.title.localeCompare(b.title)})
+        } else if(sortValue === 'descend'){
+            arr.sort((a, b) => {return b.title.localeCompare(a.title)})
+        } 
+        setSortedData(arr)
+    }, [sortValue, resources])
 
     return (
         <>
@@ -75,10 +79,16 @@ export const Resource = () => {
                             <span><AiOutlineSearch className='searchIcon' /></span>
                             <input type="text" placeholder="Search" className="search_inp" onKeyUp={handleInp} />
                         </div>
+                        <select onChange={(e)=> setSortValue(e.target.value)}>
+                            <option value="">Choose One</option>
+                            <option value="recent">Recently Added</option>
+                            <option value="ascend">Ascending</option>
+                            <option value="descend">Descending</option>
+                        </select>
                     </div>
 
                     {/* ITEMS MAP */}
-                    <ResourcesMap data={resources} loading={prodLoading} />
+                    <ResourcesMap data={ sortedData} loading={prodLoading} />
 
                    
                 </div> : <div>Loading</div>}

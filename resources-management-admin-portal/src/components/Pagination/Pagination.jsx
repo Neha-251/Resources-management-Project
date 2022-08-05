@@ -22,7 +22,7 @@ export const Pagination = ({ totalPage, paginate, paginatePrev, paginateNext, cu
             </span>
           </li> : null
         ))}
-        <li className='page_item'>.....</li>
+        { totalPage > 4 && <li className='page_item'>.....</li>}
         {pageNumbers.map(number => (
           number >= 3 && number <= totalPage-2 && number === currPage ? <li key={number} className={number === currPage ? 'currPage_item' : 'page_item'}>
             <span onClick={() => paginate(number)}>

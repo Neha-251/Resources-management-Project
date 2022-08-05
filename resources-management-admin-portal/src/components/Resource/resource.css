@@ -88,6 +88,7 @@ tr, td{
 
 .td_link{
     color: rgb(56, 56, 208);
+    cursor: pointer;
 }
 
 .pagination_con{

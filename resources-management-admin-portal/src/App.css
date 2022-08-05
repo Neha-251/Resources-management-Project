@@ -6,12 +6,17 @@ body{
 
 .normal_btn{
   color: white;
-  border-radius: 5px;
+  border-radius: 3px;
+  letter-spacing: 1px;
   padding: 12px 15px;
   border: none;
   margin: 10px 5px;
 }
 
+.red{
+  background-color: red;
+  cursor: pointer;
+}
 .green{
   background-color: seagreen;
   cursor: pointer;
@@ -26,3 +31,32 @@ body{
   background-color: silver;
   cursor: not-allowed;
 }
+
+.display_none{
+  display: none;
+}
+
+.display_block{
+  display: block;
+  margin-bottom: -25px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+/* 
+@keyframes label{
+  0%{
+    margin-bottom: -30px;
+  }
+  100%{
+    margin-bottom: 0;
+  }
+}
+
+@keyframes labelclose{
+  0%{
+    margin-bottom: 0px;
+  }
+  100%{
+    margin-bottom: -30px;
+  }
+} */

@@ -1,0 +1,48 @@
+
+
+.addItem_con{
+    display: flex;
+    width: 90%;
+    height:90vh;
+    margin: auto;
+    text-align: center;
+}
+
+.addItem_upper{
+    width: 50%;
+
+}
+
+
+
+.form{
+    margin: auto;
+    width: 55%;
+}
+
+
+
+.addInp{
+    width: 90%;
+    height: 30px;
+    margin: 10px auto;
+    border: 1px solid silver;
+    outline: none;
+    padding: 3px 10px;
+    
+}
+
+.desc{
+    height: 50px;
+    font-size: 15px;
+}
+
+.addItem_lower{
+    width: 50%;
+    height: 100%;
+}
+
+.addItem_lower > img{
+    height: 100%;
+    object-fit: fill;
+}

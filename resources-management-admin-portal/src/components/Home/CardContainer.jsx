@@ -15,23 +15,10 @@ export const CardContainer = ({ data }) => {
 
     const handleInp = (e) => {
 
-        // notes={notes.filter((el)=>el.text.toLowerCase().includes(search))} 
-        if (e.key === 'Enter' && e.target.value !== '') {
+        let search = e.target.value
+        if (e.key === 'Enter' && search !== '') {
             let newData = [];
-
-            data.forEach((el) => {
-                let { title } = el;
-
-                for (let i = 0; i < title.length; i++) {
-                    let str = '';
-                    for (let j = i; j < title.length; j++) {
-                        str += title[j]
-                        if (e.target.value === str) {
-                            newData.push(el);
-                        }
-                    }
-                }
-            })
+            newData = data.filter(el => el.title.toLowerCase().includes(search))
             setProdData(newData);
         }
 
@@ -43,15 +30,12 @@ export const CardContainer = ({ data }) => {
     const [currPage, setCurrPage] = useState(1);
     const [itemPerPage, setItemPerPage] = useState(6);
     const [currItems, setCurrItems] = useState([])
-    console.log('currItems', currItems)
     const [totalPage, setTotalPage] = useState(0)
 
     useEffect(() => {
         setTotalPage(Math.ceil(data.length / itemPerPage))
         const indLastItem = currPage * itemPerPage;
-        console.log('indLastItem', indLastItem)
         const indFirstItem = indLastItem - itemPerPage
-        console.log('indFirstItem', indFirstItem)
         setCurrItems(prodData.slice(indFirstItem, indLastItem))
     }, [prodData, currPage])
 
@@ -64,7 +48,6 @@ export const CardContainer = ({ data }) => {
     for (let i = 1; i <= totalPage; i++) {
         pageNumbers.push(i);
     }
-    console.log('pageNumbers', pageNumbers)
 
     //pagination
 
