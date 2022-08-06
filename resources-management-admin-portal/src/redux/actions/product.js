@@ -1,6 +1,9 @@
 import { PROD_LOADING, SET_PRODUCTS, PROD_ERROR, SET_SINGLE_PRODUCT, SET_RESOURCES } from '../constants/ActionTypes'
 
 
+
+
+
 export const setProdLoading = (payload) => {
     return {
         type: PROD_LOADING,
@@ -55,6 +58,5 @@ export const getSingleProduct = (id) => (dispatch) => {
     fetch(`https://media-content.ccbp.in/website/react-assignment/resource/${id}.json`)
         .then((res) => res.json())
         .then((res) => {dispatch(setSingleProduct(res)); dispatch(setProdLoading(false)); dispatch(setResources(res.resource_items))})
-        
         .catch((err) => dispatch(setProdErr(err)));
 }

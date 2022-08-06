@@ -3,7 +3,8 @@ import './home.css';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions/product";
-
+import "@sweetalert2/themes/material-ui/material-ui.css";
+import Swal from 'sweetalert2/src/sweetalert2.js'
 
 export const Home = () => {
 
@@ -12,10 +13,31 @@ export const Home = () => {
 
     const dispatch = useDispatch();
     const data = useSelector((state) => state.products.products);
+    const err = useSelector((state) => state.products.err);
     const [prodData, setProdData] = useState(data);
     const [filteredData, setFilteredData] = useState([]);
 
 
+    useEffect(()=> {
+        if(err){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'error',
+                title: 'Something Went Wrong'
+            })
+        }
+    }, [err])
     useEffect(() => {
         dispatch(getProducts())
     }, [])

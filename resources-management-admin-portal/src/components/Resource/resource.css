@@ -7,10 +7,11 @@
 
 .homeLink_con p{
     margin: 0;
+    font-size: 13px;
 }
 
 .arrowIcon{
-    margin-top: 5px;
+    margin-top: 3px;
     color: black;
 }
 

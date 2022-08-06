@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 import { CardDetails } from "./CardDetails";
 import { getSingleProduct, setResources } from "../../redux/actions/product";
 import { ResourcesMap } from "./ResourcesMap";
-import { Pagination } from "../Pagination/Pagination";
+import "@sweetalert2/themes/material-ui/material-ui.css";
+import Swal from 'sweetalert2/src/sweetalert2.js'
+
 
 export const Resource = () => {
 
@@ -18,10 +20,29 @@ export const Resource = () => {
     const dispatch = useDispatch();
     const data = useSelector((state) => state.products.product);
     const resources = useSelector((state) => state.products.resources);
-
+    const err = useSelector((state)=> state.products.err)
     const prodLoading = useSelector((state) => state.products.loading);
 
-
+    useEffect(()=> {
+        if(err){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'error',
+                title: 'Something Went Wrong'
+            })
+        }
+    }, [err])
     useEffect(() => {
         dispatch(getSingleProduct(id))
     }, [id])
