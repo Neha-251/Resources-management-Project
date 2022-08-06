@@ -6,11 +6,12 @@ import './resource.css'
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { Link } from 'react-router-dom';
 import { CardDetails } from "./CardDetails";
-import { getSingleProduct, setResources } from "../../redux/actions/product";
+import { getSingleProduct, setProdErr, setResources, setIsSuccess } from "../../redux/actions/product";
 import { ResourcesMap } from "./ResourcesMap";
 import "@sweetalert2/themes/material-ui/material-ui.css";
 import Swal from 'sweetalert2/src/sweetalert2.js';
 import { Modal } from "../Modal/Modal";
+import axios from "axios";
 
 
 export const Resource = () => {
@@ -23,26 +24,7 @@ export const Resource = () => {
     const err = useSelector((state)=> state.products.err)
     const prodLoading = useSelector((state) => state.products.loading);
 
-    useEffect(()=> {
-        if(err){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-              })
-              
-              Toast.fire({
-                icon: 'error',
-                title: 'Something Went Wrong'
-            })
-        }
-    }, [err])
+
     useEffect(() => {
         dispatch(getSingleProduct(id))
     }, [id])
@@ -76,6 +58,16 @@ export const Resource = () => {
         } 
         setSortedData(arr)
     }, [sortValue, resources])
+
+    //Update
+
+    const handleUpdate = () => {
+        axios.get('https://media-content.ccbp.in/website/react-assignment/resource/update.json')
+    .then(res => {dispatch(setProdErr(false))
+    dispatch(setIsSuccess('yes'))}).catch(err => dispatch(setIsSuccess('no')))
+    }
+
+
 
     return (
         <>
