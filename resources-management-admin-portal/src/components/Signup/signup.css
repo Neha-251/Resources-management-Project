@@ -1,7 +1,4 @@
-
-
-
-.heading_register{
+.heading_register {
     background-color: transparent;
     align-self: center;
     margin-bottom: 20px 30px;
@@ -9,7 +6,7 @@
 }
 
 
-.signup_form{
+.signup_form {
     padding: 30px;
     /* background-color: #044765;/ */
     border: 1px solid silver;
@@ -21,11 +18,11 @@
 
 
 
-.inp_con{
+.inp_con {
     margin: 35px auto;
 }
 
-.label{
+.label {
     padding: 2px 5px;
     background-color: white;
     bottom: -7px;
@@ -33,7 +30,7 @@
     position: relative;
 }
 
-.form_inp{
+.form_inp {
     font-size: 20px;
     height: 35px;
     width: 350px;
@@ -44,20 +41,20 @@
 }
 
 
-.altDiv{
+.altDiv {
     margin: 10px 5px auto;
 }
 
-.or{
+.or {
     margin: 7px auto;
 }
 
-form{
+form {
     background: transparent;
     text-align: left;
 }
 
-.psd_div{
+.psd_div {
     display: flex;
     font-size: 17px;
     height: 35px;
@@ -65,7 +62,7 @@ form{
     /* border: 1px solid red; */
 }
 
-.psd_div input{
+.psd_div input {
     width: 97%;
     font-size: 20px;
     height: 99%;
@@ -74,7 +71,7 @@ form{
     outline: none;
 }
 
-.psd_div > span{
+.psd_div>span {
     position: relative;
     margin-top: 8px;
     margin-left: -30px;
@@ -82,31 +79,32 @@ form{
 }
 
 
-.psd_st{
+.psd_st {
     margin: 10px 0;
     font-size: 11px;
 }
-.psd_st > div{
+
+.psd_st>div {
     display: flex;
     margin: 2px 0;
 }
 
-.psd_st > div> p{
+.psd_st>div>p {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.psd_st > div> span{
+.psd_st>div>span {
     font-size: 7px;
     margin-top: 4px;
     margin-right: 5px;
 }
 
-.psd_green{
+.psd_green {
     color: green;
 }
 
-.psd_red{
+.psd_red {
     color: red;
 
 }
@@ -114,7 +112,24 @@ form{
 
 @media only screen and (min-width: 275px) and (max-width: 475px) {
 
-    .signup_form{
+    .signup_form {
         padding: 7px;
+    }
+
+    .form_inp {
+        font-size: 15px;
+        padding: 1px 5px;
+        height: 30px;
+        width: 350px;
+    }
+
+
+    .psd_div input {
+        width: 97%;
+        font-size: 15px;
+        height: 30px;
+        padding: 1px 5px;
+        border: 1px solid silver;
+        outline: none;
     }
 }
