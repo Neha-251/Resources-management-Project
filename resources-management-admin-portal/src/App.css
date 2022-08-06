@@ -40,23 +40,24 @@ body{
   display: block;
   margin-bottom: -35px;
   margin-top: 20px;
-  font-size: 12px;
-}
-/* 
-@keyframes label{
-  0%{
-    margin-bottom: -30px;
-  }
-  100%{
-    margin-bottom: 0;
-  }
 }
 
-@keyframes labelclose{
-  0%{
-    margin-bottom: 0px;
+
+@media only screen and (min-width: 275px) and (max-width: 475px) {
+
+  body{
+    font-size: 10px;
   }
-  100%{
-    margin-bottom: -30px;
+
+  .normal_btn{
+    color: white;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: none;
+    margin: 10px 5px;
+    font-size: 10px;
   }
-} */
+  
+}
+

@@ -10,7 +10,8 @@ import { CardDetails } from "./CardDetails";
 import { getSingleProduct, setResources } from "../../redux/actions/product";
 import { ResourcesMap } from "./ResourcesMap";
 import "@sweetalert2/themes/material-ui/material-ui.css";
-import Swal from 'sweetalert2/src/sweetalert2.js'
+import Swal from 'sweetalert2/src/sweetalert2.js';
+import {MdSort} from 'react-icons/md';
 
 
 export const Resource = () => {
@@ -100,8 +101,8 @@ export const Resource = () => {
                             <span><AiOutlineSearch className='searchIcon' /></span>
                             <input type="text" placeholder="Search" className="search_inp" onKeyUp={handleInp} />
                         </div>
-                        <select onChange={(e)=> setSortValue(e.target.value)}>
-                            <option value="">Choose One</option>
+                        <select className='sort_con' name="sort" onChange={(e)=> setSortValue(e.target.value)}>
+                            <option className="option_1" value=""><p>Sort</p></option>
                             <option value="recent">Recently Added</option>
                             <option value="ascend">Ascending</option>
                             <option value="descend">Descending</option>

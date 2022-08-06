@@ -1,0 +1,120 @@
+
+
+
+.heading_register{
+    background-color: transparent;
+    align-self: center;
+    margin-bottom: 20px 30px;
+    font-size: 26px;
+}
+
+
+.signup_form{
+    padding: 30px;
+    /* background-color: #044765;/ */
+    border: 1px solid silver;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 360px;
+    margin: 70px auto;
+    text-align: center;
+}
+
+
+
+.inp_con{
+    margin: 35px auto;
+}
+
+.label{
+    padding: 2px 5px;
+    background-color: white;
+    bottom: -7px;
+    left: 10px;
+    position: relative;
+}
+
+.form_inp{
+    font-size: 20px;
+    height: 35px;
+    width: 350px;
+    outline: 1px solid silver;
+    border: none;
+    background-color: white;
+    padding: 2px 5px;
+}
+
+
+.altDiv{
+    margin: 10px 5px auto;
+}
+
+.or{
+    margin: 7px auto;
+}
+
+form{
+    background: transparent;
+    text-align: left;
+}
+
+.psd_div{
+    display: flex;
+    font-size: 17px;
+    height: 35px;
+    width: 360px;
+    /* border: 1px solid red; */
+}
+
+.psd_div input{
+    width: 97%;
+    font-size: 20px;
+    height: 99%;
+    padding: 2px 5px;
+    border: 1px solid silver;
+    outline: none;
+}
+
+.psd_div > span{
+    position: relative;
+    margin-top: 8px;
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+
+.psd_st{
+    margin: 10px 0;
+    font-size: 11px;
+}
+.psd_st > div{
+    display: flex;
+    margin: 2px 0;
+}
+
+.psd_st > div> p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.psd_st > div> span{
+    font-size: 7px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.psd_green{
+    color: green;
+}
+
+.psd_red{
+    color: red;
+
+}
+
+
+@media only screen and (min-width: 275px) and (max-width: 475px) {
+
+    .signup_form{
+        padding: 7px;
+    }
+}

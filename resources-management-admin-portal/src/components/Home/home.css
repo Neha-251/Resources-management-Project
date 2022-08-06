@@ -1,17 +1,18 @@
-.home_main_container{
+.home_main_container {
     width: 70%;
     margin: auto;
 }
 
-.home_btn_container{
+.home_btn_container {
     display: flex;
     margin: 50px auto;
     width: 60%;
+
     /* border: 1px solid silver; */
 }
 
-.home_btn{
-    padding:8px 10px;
+.home_btn {
+    padding: 8px 10px;
     background-color: transparent;
     width: 33.33%;
     border: 1px solid silver;
@@ -19,26 +20,27 @@
     margin: 0;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
-.clicked_btn{
+
+.clicked_btn {
     background-color: rgb(3, 55, 139);
     color: white;
-    padding:8px 10px;
+    padding: 8px 10px;
     width: 33.33%;
     border: 1px solid silver;
     cursor: pointer;
     margin: 0;
 }
 
-.home_btn:hover{
+.home_btn:hover {
     background-color: rgb(3, 89, 227);
     color: white;
 }
 
-.search_container{
+.search_container {
     width: 45%;
 
     height: 25px;
@@ -46,19 +48,20 @@ a{
 
 }
 
-.search_container span{
+.search_container span {
     /* border: 1px solid red; */
     margin-right: -25px;
     position: relative;
 
 }
-.searchIcon{
+
+.searchIcon {
     margin-right: 0px;
     margin-top: 7px;
     font-size: 18px;
 }
 
-.search_inp{
+.search_inp {
     width: 100%;
     height: 100%;
     padding: 2px 30px;
@@ -68,46 +71,129 @@ a{
     border-radius: 3px;
 }
 
-.card_container{
+.card_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
-    width:100%;
+    width: 100%;
     margin: 50px 0;
 }
 
-.card{
+.card {
     margin: 0px;
     border: 1px solid silver;
     padding: 20px;
     width: 80%;
 }
 
-.card_upper{
+.card_upper {
     display: flex;
     gap: 30px;
     text-align: left;
 }
 
-.card_img{
+.card_img {
     height: 60px;
     width: 60px;
     border-radius: 50%;
     border: 2px solid silver;
 }
 
-.card_upper2 p{
+.card_upper2 p {
     margin: 4px 0;
     font-size: 13px;
 }
 
-.card_lower{
+.card_lower {
     text-align: left;
     font-size: 14px;
 }
 
-.card_lower > p:nth-child(1){
+.card_lower>p:nth-child(1) {
     color: blue;
 }
 
 
+
+@media only screen and (min-width: 275px) and (max-width: 475px) {
+
+    .home_main_container {
+        width: 95%;
+    }
+
+    .home_btn_container {
+        margin: 30px auto;
+        width: 80%;
+        font-size: 12px;
+    }
+
+    .home_btn {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+
+
+    .clicked_btn {
+        font-size: 10px;
+    }
+
+
+    .search_container {
+        width: 85%;
+        height: 20px;
+        margin: 0 auto;
+    }
+
+    .search_container span {
+        margin-right: -18px;
+    }
+    
+    .searchIcon {
+        font-size: 14px;
+    }
+
+    .search_inp {
+        padding: 2px 20px;
+        font-size: 12px;
+    }
+
+    .card_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5px;
+        width: 95%;
+        margin: 20px 0;
+    }
+
+    .card {
+        padding: 2px;
+        width: 95%;
+    }
+
+    .card_upper {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        text-align: center;
+        gap: 2px;
+        margin: 0;
+    }
+
+    .card_lower {
+        text-align: left;
+        font-size: 10px;
+        margin: 0;
+    }
+
+    .card_img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: 2px solid silver;
+    }
+
+    .card_upper2 p {
+        margin: 2px 0;
+        font-size: 11px;
+    }
+}

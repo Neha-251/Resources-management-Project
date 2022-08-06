@@ -11,7 +11,7 @@
 }
 
 .arrowIcon{
-    margin-top: 3px;
+    margin-top: 2px;
     color: black;
 }
 
@@ -86,7 +86,14 @@ tr, td{
     height: 10px;
 }
 
+.option_1{
+    display: flex;
+}
 
+.sort_icon{
+    font-size: 30px;
+    margin-left: 30px;
+}
 .td_link{
     color: rgb(56, 56, 208);
     cursor: pointer;
@@ -96,3 +103,60 @@ tr, td{
     display: flex;
     justify-content: space-between;
 }
+
+@media only screen and (min-width: 275px) and (max-width: 475px) {
+
+    .homeLink_con p{
+        margin: 0;
+        font-size: 10px;
+    }
+
+    
+.cardDetails_upper2 > p:nth-child(1){
+    font-size: 12px;
+}
+.cardDetails_upper2 > p:nth-child(2){
+    font-size: 10px;
+    margin: 5px 0;
+}
+.cardDetails_upper2 > p:nth-child(3){
+    font-size: 10px;
+    color: rgb(23, 91, 218);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.searchMain_con{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 15px;
+
+}
+
+.search_container{
+    width: 70%;
+}
+
+.sort_con{
+    width: 25%;
+}
+
+.searchMain_con p{
+    margin:0;
+    display: none;
+}
+
+.pagination_con{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.pagination_btnDiv{
+    text-align: right;
+}
+
+
+}
+

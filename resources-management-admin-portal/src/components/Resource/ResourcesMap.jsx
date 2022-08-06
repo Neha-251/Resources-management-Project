@@ -107,7 +107,7 @@ export const ResourcesMap = ({ data, loading }) => {
             }
 
             <div className="pagination_con">
-                <div>
+                <div className="pagination_btnDiv">
                     <Link to='/additem'><button className='normal_btn green'>ADD ITEM</button></Link>
                     <button className={isDelete ? 'normal_btn red' : 'normal_btn silver'}>DELETE</button>
                 </div>
