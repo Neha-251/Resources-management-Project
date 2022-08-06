@@ -13,32 +13,32 @@ export const Pagination = ({ totalPage, paginate, paginatePrev, paginateNext, cu
     <div className='pagination_container'>
 
       <ul className='pagination'>
-        <li className="page_item"><span onClick={paginatePrev} ><RiArrowLeftSLine /></span></li>
+        { currPage!==1 && <li onClick={paginatePrev} className="page_item"><span ><RiArrowLeftSLine /></span></li>}
         {pageNumbers.map(number => (
-          number < 3 ? <li key={number} className={number === currPage ? 'currPage_item' : 'page_item'}>
-            <span onClick={() => paginate(number)}>
+          number < 3 ? <li key={number}  onClick={() => paginate(number)} className={number === currPage ? 'currPage_item' : 'page_item'}>
+            <span>
               {number}
             </span>
           </li> : null
         ))}
         { totalPage > 4 && <li className='page_item'>.....</li>}
         {pageNumbers.map(number => (
-          number >= 3 && number <= totalPage-2 && number === currPage ? <li key={number} className={number === currPage ? 'currPage_item' : 'page_item'}>
-            <span onClick={() => paginate(number)}>
+          number >= 3 && number <= totalPage-2 && number === currPage ? <li key={number} onClick={() => paginate(number)} className={number === currPage ? 'currPage_item' : 'page_item'}>
+            <span>
               {number}
             </span>
           </li> : null
         ))}
 
         {pageNumbers.map(number => (
-          number > totalPage - 2 ? <li key={number} className={number === currPage ? 'currPage_item' : 'page_item'}>
-            <span onClick={() => paginate(number)}>
+          number > totalPage - 2 ? <li key={number} onClick={() => paginate(number)} className={number === currPage ? 'currPage_item' : 'page_item'}>
+            <span>
               {number}
             </span>
           </li> : null
         ))}
 
-        <li className="page_item"><span onClick={paginateNext} ><RiArrowRightSLine /></span></li>
+        {currPage!==totalPage && <li onClick={paginateNext} className="page_item"><span><RiArrowRightSLine /></span></li>}
 
       </ul>
 

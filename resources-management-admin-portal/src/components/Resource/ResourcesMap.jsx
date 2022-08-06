@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Pagination } from "../Pagination/Pagination";
-import { DeleteResource } from "./DeleteResource";
 import {Link } from 'react-router-dom';
 import { Modal } from "../Modal/Modal";
 import {useDispatch} from 'react-redux';
