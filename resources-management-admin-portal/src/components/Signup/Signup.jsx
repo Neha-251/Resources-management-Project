@@ -179,23 +179,23 @@ export const Signup = () => {
 
                         <div className={inp.password!=='' ? 'psd_st' : 'display_none'}>
                             <div className={ char? 'psd_green' : 'psd_red'}>
-                                <span>{char? <TiTick/> : <ImCross/>}</span>
+                                <span>{char? '✔' : <ImCross/>}</span>
                                 <p>Atleast 8 characters</p>
                             </div>
                             <div className={ upperCase? 'psd_green' : 'psd_red'}>
-                                <span>{upperCase? <TiTick/> : <ImCross/>}</span>
+                                <span>{upperCase? '✔' : <ImCross/>}</span>
                                 <p>Must Contain 1 Uppercase</p>
                             </div>
                             <div className={ lowercase? 'psd_green' : 'psd_red'}>
-                                <span>{lowercase? <TiTick/> : <ImCross/>}</span>
+                                <span>{lowercase? '✔' : <ImCross/>}</span>
                                 <p>Must Contain 1 Lowercase</p>
                             </div>
                             <div className={ num? 'psd_green' : 'psd_red'}>
-                                <span>{num? <TiTick/> : <ImCross/>}</span>
+                                <span>{num? '✔' : <ImCross/>}</span>
                                 <p>Must Contain 1 Number</p>
                             </div>
                             <div className={ specialChar? 'psd_green' : 'psd_red'}>
-                                <span>{specialChar? <TiTick/> : <ImCross/>}</span>
+                                <span>{specialChar? '✔' : <ImCross/>}</span>
                                 <p>Must Contain 1 special character</p>
                             </div>
                         </div>
