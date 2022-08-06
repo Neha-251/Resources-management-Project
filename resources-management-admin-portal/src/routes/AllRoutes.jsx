@@ -4,18 +4,26 @@ import { Home } from "../components/Home/Home"
 import { Navbar } from "../components/Navbar/Navbar"
 import { Resource } from "../components/Resource/Resource"
 import {Signup} from '../components/Signup/Signup';
-import { useSelector } from "react-redux/es/hooks/useSelector"
+import { useSelector, useDispatch } from "react-redux"
 import { Modal } from "../components/Modal/Modal"
+import { setIsSuccess } from "../redux/actions/product"
+import { ErrorDiv } from "../components/Error Div/ErrorDiv"
 
 export const AllRoutes = () => {
+ 
+    const dispatch = useDispatch()
+    const err = useSelector((state) => state.products.err);
+    const isSuccess = useSelector((state) => state.products.isSuccess);
 
-    const loading = useSelector((state)=> state.products.loading)
-    console.log('loading', loading)
+    if(err){
+        dispatch(setIsSuccess('no'))
+    }
 
     return (
         <>
+
+        {isSuccess!=='' && <ErrorDiv/>}
         <Navbar/>
-        { loading && <Modal/>}
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/resource/:id' element={<Resource/>}/>

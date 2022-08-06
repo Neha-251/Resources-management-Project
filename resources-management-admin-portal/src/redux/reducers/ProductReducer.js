@@ -3,7 +3,8 @@ import {
     PROD_LOADING,
     SET_PRODUCTS,
     SET_SINGLE_PRODUCT,
-    SET_RESOURCES
+    SET_RESOURCES,
+    IS_SUCCESS
 } from '../constants/ActionTypes';
 
 const initialState ={
@@ -11,6 +12,7 @@ const initialState ={
    product: {},
    resources: [],
    loading: false,
+   isSuccess: '',
    err: false,
 }
 
@@ -18,6 +20,8 @@ export const productReducer = (state = initialState, {type, payload}) => {
     switch(type) {
         case PROD_LOADING:
             return { ...state, loading: payload}
+        case IS_SUCCESS:
+            return { ...state, isSuccess: payload}
         case PROD_ERROR:
             return { ...state, loading: false, err: payload}
         case SET_PRODUCTS:

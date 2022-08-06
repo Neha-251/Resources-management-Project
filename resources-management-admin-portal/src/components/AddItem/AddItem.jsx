@@ -4,9 +4,10 @@ import './addItem.css';
 import "@sweetalert2/themes/material-ui/material-ui.css";
 import Swal from 'sweetalert2/src/sweetalert2.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProdErr } from '../../redux/actions/product';
+import { setIsSuccess, setProdErr } from '../../redux/actions/product';
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import { ErrorDiv } from '../Error Div/ErrorDiv';
 
 
 export const AddItem = () => {
@@ -18,28 +19,10 @@ export const AddItem = () => {
 
     const dispatch = useDispatch();
     const err = useSelector((state) => state.products.err);
+    const isSuccess = useSelector((state)=> state.products.isSuccess)
 
-    useEffect(() => {
-        if (err) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'error',
-                title: 'Something Went Wrong'
-            })
-        } 
-    })
-
+  
+   
     const [data, setData] = useState({
         title: '',
         link: '',
@@ -98,30 +81,17 @@ export const AddItem = () => {
         if (obj.title === '' && obj.link === '' && obj.res_name === '' && obj.description === '') {
             axios.get('https://media-content.ccbp.in/website/react-assignment/add_resource.json')
                 .then(res => {dispatch(setProdErr(false))
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'bottom-end',
-                        showConfirmButton: false,
-                        timer: 4000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-        
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Item Added Successfully'
-                    })
+                    dispatch(setIsSuccess('yes'))
                 }
-                ).catch(err => dispatch(setProdErr(true)))
+                ).catch(err => { dispatch(setIsSuccess('no'));})
         }
 
     }
 
     return (
         <>
+
+        {isSuccess!=='' && <ErrorDiv/> }
 
             <div className='addItem_con'>
                 <Link to='/'>

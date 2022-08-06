@@ -1,7 +1,13 @@
-import { PROD_LOADING, SET_PRODUCTS, PROD_ERROR, SET_SINGLE_PRODUCT, SET_RESOURCES } from '../constants/ActionTypes'
+import { PROD_LOADING, SET_PRODUCTS, PROD_ERROR, SET_SINGLE_PRODUCT, SET_RESOURCES, IS_SUCCESS } from '../constants/ActionTypes'
 
 
 
+export const setIsSuccess = (payload) => {
+    return {
+        type: IS_SUCCESS,
+        payload: payload
+    }
+}
 
 
 export const setProdLoading = (payload) => {

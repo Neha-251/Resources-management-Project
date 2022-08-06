@@ -2,24 +2,26 @@ import { CardContainer } from "./CardContainer";
 import './home.css';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, setProdLoading } from "../../redux/actions/product";
+import { getProducts, setIsSuccess, setProdLoading } from "../../redux/actions/product";
 import "@sweetalert2/themes/material-ui/material-ui.css";
 import Swal from 'sweetalert2/src/sweetalert2.js'
+import { Modal } from "../Modal/Modal";
 
 export const Home = () => {
 
     const [showContainer, setShowContainer] = useState('resources');
-    console.log('showContainer', showContainer)
+    const err = useSelector((state) => state.products.err);
 
     const dispatch = useDispatch();
     const data = useSelector((state) => state.products.products);
-    const err = useSelector((state) => state.products.err);
     const [prodData, setProdData] = useState(data);
     const [filteredData, setFilteredData] = useState([]);
 
+   
     useEffect(()=> {
-        if(data){
+        if(data.length > 0){
             dispatch(setProdLoading(false))
+        } else {
         }
     })
 
@@ -80,7 +82,9 @@ export const Home = () => {
 
     return (
 
+
         <div className="home_main_container">
+            {data.length === 0 && <Modal/>}
             <div className="home_btn_container">
                 <button className={showContainer==='resources'? 'clicked_btn' : 'home_btn'} onClick={()=> setShowContainer('resources')}>Resources</button>
                 <button className={showContainer==='requests'? 'clicked_btn' : 'home_btn'} onClick={()=> setShowContainer('requests')}>Requests</button>

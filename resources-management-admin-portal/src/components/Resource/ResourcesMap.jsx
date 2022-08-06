@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 import { Pagination } from "../Pagination/Pagination";
 import { DeleteResource } from "./DeleteResource";
 import {Link } from 'react-router-dom';
+import { Modal } from "../Modal/Modal";
+import {useDispatch} from 'react-redux';
+import { setResources } from "../../redux/actions/product";
 
 
 
 export const ResourcesMap = ({ data, loading }) => {
+
+    const dispatch = useDispatch();
 
     //Pagination
 
@@ -34,36 +39,15 @@ export const ResourcesMap = ({ data, loading }) => {
     //pagination
 
 
-    const [chosenItem, setChosenItem] = useState([]);
-    console.log('chosenItem', chosenItem)
     const [isDelete, setIsDelete] = useState(false);
 
-    const chooseItem = (title) => {
-
-        if (chosenItem.length === 0) {
-            setChosenItem([...chosenItem, title])
-        } else {
-
-            let item = currItems.filter((el)=> el.title===title)
-
-            if(item[0]){
-                let arr = [];
-                chosenItem.forEach((el) => {
-                    if (title !== el.title) {
-                        arr.push(el)
-                    }
-                })
-                setChosenItem(arr)
-            } else {
-                setChosenItem([...chosenItem, title])
-  
-            }
-            
-        }
+    const chooseItem = () => {
+        setIsDelete(true)
+       
     }
 
     const handleDelete = (i) => {
-        data.splice(i, 1)
+        if(isDelete){data.splice(i, 1); setIsDelete(false); dispatch(setResources(data))}
     }
 
     const handleLink = (link) => {
@@ -74,7 +58,7 @@ export const ResourcesMap = ({ data, loading }) => {
     return (
         <>
             {
-                loading ? <div>Loading</div> :
+                loading ? <Modal/> :
 
                     <table>
                         <thead>
@@ -109,7 +93,7 @@ export const ResourcesMap = ({ data, loading }) => {
             <div className="pagination_con">
                 <div className="pagination_btnDiv">
                     <Link to='/additem'><button className='normal_btn green'>ADD ITEM</button></Link>
-                    <button className={isDelete ? 'normal_btn red' : 'normal_btn silver'}>DELETE</button>
+                    <button onClick={handleDelete} className={isDelete ? 'normal_btn red' : 'normal_btn silver'}>DELETE</button>
                 </div>
                 <div>
                     <Pagination

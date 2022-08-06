@@ -8,7 +8,6 @@ export const Pagination = ({ totalPage, paginate, paginatePrev, paginateNext, cu
   for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
-  console.log('pageNumbers', pageNumbers)
 
   return (
     <div className='pagination_container'>

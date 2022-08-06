@@ -79,7 +79,6 @@ export const Signup = () => {
 
 
     const [upperCase, setUpperCase] = useState(false)
-    console.log('upperCase', upperCase)
     const [lowercase, setLowercase] = useState(false)
     const [char, setChar] = useState(false)
     const [num, setNum] = useState(false)
@@ -89,7 +88,6 @@ export const Signup = () => {
         let {password} = inp;
 
         if(password.length >= 0){
-            console.log('coming');
             let calp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let salp = 'abcdefghijklmnopqrstuvwxyz';
             let numStr = '1234567890';

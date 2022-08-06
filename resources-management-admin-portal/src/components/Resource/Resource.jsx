@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { AiOutlineSearch } from 'react-icons/ai';
-import axios from "axios";
 import './resource.css'
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { Link } from 'react-router-dom';
@@ -11,7 +10,6 @@ import { getSingleProduct, setResources } from "../../redux/actions/product";
 import { ResourcesMap } from "./ResourcesMap";
 import "@sweetalert2/themes/material-ui/material-ui.css";
 import Swal from 'sweetalert2/src/sweetalert2.js';
-import {MdSort} from 'react-icons/md';
 import { Modal } from "../Modal/Modal";
 
 
@@ -81,7 +79,7 @@ export const Resource = () => {
 
     return (
         <>
-            {!prodLoading ?
+            {sortedData.length !== 0 ?
                 <div className='home_main_container'>
                     <Link to='/'>
                         <div className="homeLink_con">
@@ -103,7 +101,7 @@ export const Resource = () => {
                             <input type="text" placeholder="Search" className="search_inp" onKeyUp={handleInp} />
                         </div>
                         <select className='sort_con' name="sort" onChange={(e)=> setSortValue(e.target.value)}>
-                            <option className="option_1" value=""><p>Sort</p></option>
+                            <option className="option_1" value="">Sort</option>
                             <option value="recent">Recently Added</option>
                             <option value="ascend">Ascending</option>
                             <option value="descend">Descending</option>
@@ -114,7 +112,7 @@ export const Resource = () => {
                     <ResourcesMap data={ sortedData} loading={prodLoading} />
 
                    
-                </div> : <div></div>}
+                </div> : <Modal/>}
         </>
     )
 }

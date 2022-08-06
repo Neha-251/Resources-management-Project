@@ -1,0 +1,23 @@
+
+
+
+.errDiv{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 300px;
+    height: 60px;
+    padding: 10px;
+    color: white;
+    text-align: right;
+}
+
+.errDiv span{
+    width: 50px;
+    position: relative;
+}
+
+.errDiv p{
+    text-align: center;
+}
+
