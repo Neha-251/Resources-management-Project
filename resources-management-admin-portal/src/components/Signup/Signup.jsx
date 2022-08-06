@@ -179,7 +179,7 @@ export const Signup = () => {
                             <span onClick={() => seePsd ? setSeePsd(false) : setSeePsd(true)}>{seePsd ? <AiFillEye /> : <AiFillEyeInvisible />}</span>
                         </div>
 
-                        <div className='psd_st'>
+                        <div className={inp.password!=='' ? 'psd_st' : 'display_none'}>
                             <div className={ char? 'psd_green' : 'psd_red'}>
                                 <span>{char? <TiTick/> : <ImCross/>}</span>
                                 <p>Atleast 8 characters</p>

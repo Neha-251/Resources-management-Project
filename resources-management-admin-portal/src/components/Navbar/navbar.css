@@ -12,9 +12,27 @@ nav > img{
     
 }
 
+nav > div{
+    text-align: center;
+    display: flex;
+}
+
+nav > div > div:nth-child(2){
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 .userIcon{
     font-size: 30px;
     margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.username{
+    margin-bottom: 0px;
+    margin-top: -5px;
+    color: rgb(10, 71, 204);
+    font-weight: 500;
 }
 
 @media only screen and (min-width: 275px) and (max-width: 475px) {

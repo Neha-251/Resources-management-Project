@@ -2,6 +2,7 @@
 
 
 export const CardDetails = ({ data }) => {
+    
 
 
     return (

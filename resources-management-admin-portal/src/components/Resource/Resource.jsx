@@ -12,6 +12,7 @@ import { ResourcesMap } from "./ResourcesMap";
 import "@sweetalert2/themes/material-ui/material-ui.css";
 import Swal from 'sweetalert2/src/sweetalert2.js';
 import {MdSort} from 'react-icons/md';
+import { Modal } from "../Modal/Modal";
 
 
 export const Resource = () => {
@@ -113,7 +114,7 @@ export const Resource = () => {
                     <ResourcesMap data={ sortedData} loading={prodLoading} />
 
                    
-                </div> : <div>Loading</div>}
+                </div> : <div></div>}
         </>
     )
 }

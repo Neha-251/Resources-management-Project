@@ -10,7 +10,7 @@ const initialState ={
    products: [],
    product: {},
    resources: [],
-   loading: true,
+   loading: false,
    err: false,
 }
 

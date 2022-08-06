@@ -1,7 +1,7 @@
 .heading_register {
     background-color: transparent;
     align-self: center;
-    margin-bottom: 20px 30px;
+    margin: 10px 30px;
     font-size: 26px;
 }
 
@@ -12,7 +12,7 @@
     border: 1px solid silver;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 360px;
-    margin: 70px auto;
+    margin: 30px auto;
     text-align: center;
 }
 

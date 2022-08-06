@@ -2,7 +2,7 @@ import { CardContainer } from "./CardContainer";
 import './home.css';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/actions/product";
+import { getProducts, setProdLoading } from "../../redux/actions/product";
 import "@sweetalert2/themes/material-ui/material-ui.css";
 import Swal from 'sweetalert2/src/sweetalert2.js'
 
@@ -17,6 +17,11 @@ export const Home = () => {
     const [prodData, setProdData] = useState(data);
     const [filteredData, setFilteredData] = useState([]);
 
+    useEffect(()=> {
+        if(data){
+            dispatch(setProdLoading(false))
+        }
+    })
 
     useEffect(()=> {
         if(err){

@@ -37,25 +37,8 @@ export const AddItem = () => {
                 icon: 'error',
                 title: 'Something Went Wrong'
             })
-        } else {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'success',
-                title: 'Item Added Successfully'
-            })
-        }
-    }, [err])
+        } 
+    })
 
     const [data, setData] = useState({
         title: '',
@@ -114,7 +97,25 @@ export const AddItem = () => {
 
         if (obj.title === '' && obj.link === '' && obj.res_name === '' && obj.description === '') {
             axios.get('https://media-content.ccbp.in/website/react-assignment/add_resource.json')
-                .then(res => dispatch(setProdErr(false))).catch(err => dispatch(setProdErr(true)))
+                .then(res => {dispatch(setProdErr(false))
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'bottom-end',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+        
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Item Added Successfully'
+                    })
+                }
+                ).catch(err => dispatch(setProdErr(true)))
         }
 
     }
